@@ -57,10 +57,11 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2, 0.3], [0.02, 0.03]]
 
     elif candidate == CAR.SUBARU_IMPREZA_2020:
-      ret.lateralTuning.init('pid')
-      ret.lateralTuning.pid.kf = 0.00005
-      ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0., 14., 23.], [0., 14., 23.]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.045, 0.042, 0.20], [0.04, 0.035, 0.045]]
+      # ret.lateralTuning.init('pid')
+      # ret.lateralTuning.pid.kf = 0.00005
+      # ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0., 14., 23.], [0., 14., 23.]]
+      # ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.045, 0.042, 0.20], [0.04, 0.035, 0.045]]
+      ret.steerActuatorDelay = 0.1
 
     elif candidate == CAR.SUBARU_CROSSTREK_HYBRID:
       ret.steerActuatorDelay = 0.1
