@@ -9,7 +9,7 @@ from opendbc.car.subaru.values import DBC, GLOBAL_ES_ADDR, CanBus, CarController
 # FIXME: These limits aren't exact. The real limit is more than likely over a larger time period and
 # involves the total steering angle change rather than rate, but these limits work well for now
 MAX_STEER_RATE = 25  # deg/s
-MAX_STEER_RATE_FRAMES = 7  # tx control frames needed before torque can be cut
+MAX_STEER_RATE_FRAMES = 14  # tx control frames needed before torque can be cut
 
 
 class CarController(CarControllerBase):
@@ -51,7 +51,7 @@ class CarController(CarControllerBase):
           # Steering rate fault prevention
           self.steer_rate_counter, apply_steer_req = \
             common_fault_avoidance(abs(CS.out.steeringRateDeg) > MAX_STEER_RATE, apply_steer_req,
-                                   self.steer_rate_counter, MAX_STEER_RATE_FRAMES)
+                                   self.steer_rate_counter, MAX_STEER_RATE_FRAMES // self.p.STEER_STEP)
 
         can_sends.append(subarucan.create_steering_control(self.packer, apply_torque, apply_steer_req))
 
