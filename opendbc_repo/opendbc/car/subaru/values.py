@@ -12,6 +12,7 @@ Ecu = CarParams.Ecu
 class CarControllerParams:
   def __init__(self, CP):
     self.STEER_STEP = 2                # how often we update the steer cmd
+    self.STEER_MAX = 2047
     self.STEER_DELTA_UP = 50           # torque increase per refresh, 0.8s to max
     self.STEER_DELTA_DOWN = 70         # torque decrease per refresh
     self.STEER_DRIVER_ALLOWANCE = 60   # allowed driver torque before start limiting
@@ -24,10 +25,10 @@ class CarControllerParams:
       self.STEER_DELTA_UP = 40
       self.STEER_DELTA_DOWN = 40
     elif CP.carFingerprint == CAR.SUBARU_IMPREZA_2020:
-      self.STEER_DELTA_UP = 35
-      self.STEER_MAX = 1439
-    else:
-      self.STEER_MAX = 2047
+      self.STEER_STEP = 1              # using 100hz for EU impreza
+      self.STEER_MAX = 1439            # max applicable torque
+      self.STEER_DELTA_UP = 17         # 17 [J/ms] * 80 [ms] = 1360 [J] (<= STEER_MAX)
+      self.STEER_DELTA_DOWN = 35       # releasing torque can be quicker
 
   THROTTLE_MIN = 808
   THROTTLE_MAX = 3400
