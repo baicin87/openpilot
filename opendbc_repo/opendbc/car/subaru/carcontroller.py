@@ -8,7 +8,7 @@ from opendbc.car.subaru.values import DBC, GLOBAL_ES_ADDR, CanBus, CarController
 
 # FIXME: These limits aren't exact. The real limit is more than likely over a larger time period and
 # involves the total steering angle change rather than rate, but these limits work well for now
-MAX_STEER_RATE = 25  # deg/s
+MAX_STEER_RATE = 35  # deg/s
 MAX_STEER_RATE_FRAMES = 14  # tx control frames needed before torque can be cut
 
 
