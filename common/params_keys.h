@@ -112,6 +112,7 @@ inline static std::unordered_map<std::string, ParamKeyAttributes> keys = {
     {"RouteCount", {PERSISTENT, INT, "0"}},
     {"SnoozeUpdate", {CLEAR_ON_MANAGER_START | CLEAR_ON_OFFROAD_TRANSITION, BOOL}},
     {"SshEnabled", {PERSISTENT, BOOL}},
+    {"SubaruEpsLimit", {PERSISTENT, BOOL, "1"}},
     {"TermsVersion", {PERSISTENT, STRING}},
     {"TrainingVersion", {PERSISTENT, STRING}},
     {"UbloxAvailable", {PERSISTENT, BOOL}},
