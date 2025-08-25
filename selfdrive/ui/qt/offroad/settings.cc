@@ -27,6 +27,13 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
       true,
     },
     {
+      "SubaruEpsLimit",
+      tr("Enable Subaru EPS Limit"),
+      tr("Prevent EPS from disabling when curving for too long."),
+      "../assets/icons/warning.png",
+      true,
+    },
+    {
       "ExperimentalMode",
       tr("Experimental Mode"),
       "",
