@@ -9,6 +9,9 @@ DESCRIPTIONS = {
     "Use the openpilot system for adaptive cruise control and lane keep driver assistance. " +
     "Your attention is required at all times to use this feature."
   ),
+  "SubaruEpsLimit": (
+    "Prevent EPS from disabling when curving for too long."
+  ),
   "DisengageOnAccelerator": "When enabled, pressing the accelerator pedal will disengage openpilot.",
   "LongitudinalPersonality": (
     "Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. " +
