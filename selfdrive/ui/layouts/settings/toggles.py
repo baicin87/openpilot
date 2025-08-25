@@ -41,6 +41,12 @@ class TogglesLayout(Widget):
         icon="chffr_wheel.png",
       ),
       toggle_item(
+        "Enable Subaru EPS Limit",
+        DESCRIPTIONS["SubaruEpsLimit"],
+        self._params.get_bool("SubaruEpsLimit"),
+        icon="warning.png",
+      ),
+      toggle_item(
         "Experimental Mode",
         initial_state=self._params.get_bool("ExperimentalMode"),
         icon="experimental_white.png",
