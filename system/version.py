@@ -101,7 +101,7 @@ class BuildMetadata:
 
   @property
   def release_channel(self) -> bool:
-    return self.channel in RELEASE_BRANCHES
+    return True # self.channel in RELEASE_BRANCHES
 
   @property
   def canonical(self) -> str:
