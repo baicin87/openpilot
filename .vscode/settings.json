@@ -23,5 +23,6 @@
     "system/**",
     "third_party/**",
     "tools/**",
-  ]
+  ],
+  "python.analysis.aiHoverSummaries": false
 }
