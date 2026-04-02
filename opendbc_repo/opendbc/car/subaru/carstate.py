@@ -3,7 +3,7 @@ from opendbc.can import CANDefine, CANParser
 from opendbc.car import Bus, structs
 from opendbc.car.common.conversions import Conversions as CV
 from opendbc.car.interfaces import CarStateBase
-from opendbc.car.subaru.values import DBC, CanBus, SubaruFlags
+from opendbc.car.subaru.values import DBC, CanBus, CarControllerParams, SubaruFlags
 from opendbc.car import CanSignalRateCalculator
 
 
@@ -13,7 +13,8 @@ class CarState(CarStateBase):
     can_define = CANDefine(DBC[CP.carFingerprint][Bus.pt])
     self.shifter_values = can_define.dv["Transmission"]["Gear"]
 
-    self.angle_rate_calulator = CanSignalRateCalculator(100)  # 100Hz update rate
+    params = CarControllerParams(CP)
+    self.angle_rate_calulator = CanSignalRateCalculator(100 // params.STEER_STEP)
 
   def update(self, can_parsers) -> structs.CarState:
     cp = can_parsers[Bus.pt]

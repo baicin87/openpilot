@@ -27,8 +27,9 @@ class CarControllerParams:
     elif CP.carFingerprint == CAR.SUBARU_IMPREZA_2020:
       self.STEER_STEP = 1              # using 100hz for EU impreza
       self.STEER_MAX = 1439            # max applicable torque
-      self.STEER_DELTA_UP = 18         # 18 [Nm/ms] * 80 [ms] = 1440 [Nm] (<= STEER_MAX)
-      self.STEER_DELTA_DOWN = 36       # releasing torque can be quicker
+      self.STEER_DELTA_UP = 17 * self.STEER_STEP # [Nm/ms] * 80 [ms] = 1440 [Nm] (<= STEER_MAX)
+      self.STEER_DOWN_MULT = 1                     # allow faster torque decrease when reducing from high torque levels
+      self.STEER_DELTA_DOWN = self.STEER_DELTA_UP * self.STEER_DOWN_MULT  # releasing torque can be quicker
 
   THROTTLE_MIN = 808
   THROTTLE_MAX = 3400
