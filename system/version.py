@@ -97,11 +97,11 @@ class BuildMetadata:
 
   @property
   def tested_channel(self) -> bool:
-    return True # self.channel in TESTED_BRANCHES
+    return self.channel in TESTED_BRANCHES
 
   @property
   def release_channel(self) -> bool:
-    return True # self.channel in RELEASE_BRANCHES
+    return self.channel in RELEASE_BRANCHES
 
   @property
   def canonical(self) -> str:

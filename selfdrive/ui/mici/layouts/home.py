@@ -176,7 +176,7 @@ class MiciHomeLayout(Widget):
 
     if self._version_text is not None:
       # release branch
-      release_branch = True # self._version_text[1] in RELEASE_BRANCHES
+      release_branch = self._version_text[1] in RELEASE_BRANCHES
       version_pos = rl.Rectangle(text_pos.x, text_pos.y + self._openpilot_label.font_size + 16, 100, 44)
       self._version_label.set_text(self._version_text[0])
       self._version_label.set_position(version_pos.x, version_pos.y)
