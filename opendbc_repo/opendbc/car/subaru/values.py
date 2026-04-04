@@ -30,6 +30,7 @@ class CarControllerParams:
       self.STEER_DELTA_UP = 17 * self.STEER_STEP # [Nm/ms] * 80 [ms] = 1440 [Nm] (<= STEER_MAX)
       self.STEER_DOWN_MULT = 1                     # allow faster torque decrease when reducing from high torque levels
       self.STEER_DELTA_DOWN = self.STEER_DELTA_UP * self.STEER_DOWN_MULT  # releasing torque can be quicker
+      self.STEER_DRIVER_ALLOWANCE = self.STEER_DELTA_UP * 2
 
   THROTTLE_MIN = 808
   THROTTLE_MAX = 3400
